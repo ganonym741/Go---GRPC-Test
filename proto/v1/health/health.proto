@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package api.gogrpclearning.bri.v1.health;
+
+option go_package = "gitlab.com/go-grpc-learning/proto/v1/health";
+
+import "lib/google/api/annotations.proto";
+import "google/protobuf/empty.proto";
+
+// RetrieveResponse is the response for health service.
+message Response {
+    bool success               = 1;
+    string code                = 2;
+    string desc                = 3;
+}
+
+// healthServices provides utility methods for the API.
+service HealthService {
+    rpc Get(google.protobuf.Empty) returns (Response) {
+    }
+}
